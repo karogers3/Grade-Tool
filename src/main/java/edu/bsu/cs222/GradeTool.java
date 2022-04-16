@@ -23,7 +23,7 @@ public class GradeTool {
 
         assert percentages != null;
 
-        Convert triage = new Convert();
+        GradePolicy triage = new GradePolicy();
         for (float percent : percentages) {
             System.out.println(triage.toGrade(percent));
         }
