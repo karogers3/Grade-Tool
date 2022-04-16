@@ -11,13 +11,13 @@ import java.util.List;
  */
 public class GradeTool {
     public static void main(String[] args) {
-        GradeFile percentageParser = new GradeFile();
+        FloatParser percentageParser = new FloatParser();
         List<Float> percentages = null;
         try {
-            percentages = percentageParser.parse(System.in);
+            percentages = percentageParser.parseForFloats(System.in);
         } catch (IOException ioException) {
             System.out.println("There was a problem reading from the input stream.");
-        } catch (GradeFile.ParseException parseException) {
+        } catch (FloatParser.ParseException parseException) {
             System.out.println("Invalid input format.");
         }
 

@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Parses a stream of grades.
+ * Parses a stream of floats.
  *
  * Each line of the stream is expected to be a single numeric value
  * in the range [0,1].
  */
-public class GradeFile {
+public class FloatParser {
     static final class ParseException extends RuntimeException {}
 
     /**
@@ -23,21 +23,22 @@ public class GradeFile {
      * @throws IOException if there is a problem reading from the stream
      * @throws ParseException if the stream does not contain a format recognized by this parser
      */
-    public List<Float> parse(InputStream input) throws IOException {
+    public List<Float> parseForFloats(InputStream input) throws IOException {
         if (input == null) {
             throw new IllegalArgumentException("Input stream must not be null.");
         }
-        List<Float> result = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new InputStreamReader(input));
         String line;
+        List<Float> floats = new ArrayList<>();
+
         while ((line = reader.readLine()) != null) {
             try {
-                float f = Float.parseFloat(line);
-                result.add(f);
+                float aFloat = Float.parseFloat(line);
+                floats.add(aFloat);
             } catch (NumberFormatException numberFormatException) {
                 throw new ParseException();
             }
         }
-        return result;
+        return floats;
     }
 }
