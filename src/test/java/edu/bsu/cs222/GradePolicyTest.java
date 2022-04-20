@@ -20,13 +20,13 @@ public class GradePolicyTest {
     private static Stream<Arguments> percentageToGrade() {
         return Stream.of(
                 arguments(1.0f, Grade.A),
-                arguments(8f / 9f + 0.1f, Grade.A),
+                arguments(8f / 9f + 0.01f, Grade.A),
                 arguments(8f / 9f, Grade.B),
-                arguments(13f / 18f + 0.1f, Grade.B),
+                arguments(13f / 18f + 0.01f, Grade.B),
                 arguments(13f / 18f, Grade.C),
-                arguments(8f / 15f + 0.1f, Grade.C),
+                arguments(8f / 15f + 0.01f, Grade.C),
                 arguments(8f / 15f, Grade.D),
-                arguments(1f / 3f + 0.1f, Grade.D),
+                arguments(1f / 3f + 0.01f, Grade.D),
                 arguments(1f / 3f, Grade.F)
         );
     }
